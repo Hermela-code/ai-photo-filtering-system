@@ -1,21 +1,18 @@
 <?php
-// backend/config.php
-
-// Global headers for CORS and JSON response
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-header("Content-Type: application/json; charset=UTF-8");
-
-// Handle preflight CORS OPTIONS requests
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    http_response_code(200);
-    exit();
+// Check if we are running on the live VPS or custom domain
+if ($_SERVER['SERVER_NAME'] == '173.212.213.249') {
+    // Live Server Credentials
+    define('DB_HOST', 'localhost');
+    define('DB_USER', 'photosort_admin');
+    define('DB_PASS', 'qazxswedc1234!@#$'); // Or whatever password you set
+    define('DB_NAME', 'photosort');
+    define('BASE_URL', 'http://173.212.213.249/ai-photo-filtering-system');
+} else {
+    // Local XAMPP Credentials
+    define('DB_HOST', 'localhost');
+    define('DB_USER', 'root');
+    define('DB_PASS', '');
+    define('DB_NAME', 'photosort');
+    define('BASE_URL', 'http://localhost/ai-photo-filtering-system');
 }
-
-// Database configuration constants (configured for default XAMPP setup)
-define('DB_HOST', '127.0.0.1');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'photosort');
-define('DB_PORT', '3306');
+?>
