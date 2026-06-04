@@ -168,7 +168,7 @@ export default function ProjectDetail({ project, onBack }) {
     <div className="space-y-8 max-w-7xl mx-auto animate-fade-in pb-12">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 w-full">
         <div className="flex flex-wrap items-center gap-2 sm:gap-4">
-          <button onClick={onBack} className="p-2 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors border border-transparent hover:border-gray-200">
+          <button onClick={onBack} className="p-3 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors border border-transparent hover:border-gray-200">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
             </svg>
@@ -209,7 +209,7 @@ export default function ProjectDetail({ project, onBack }) {
               <span className={sourceFiles.length > 0 ? "text-emerald-600" : "text-amber-600"}>{sourceFiles.length > 0 ? `✓ Bulk Photos: ${sourceFiles.length} selected` : '✗ Missing Bulk Photos'}</span>
             </div>
           </div>
-          <button disabled={sampleFiles.length === 0 || sourceFiles.length === 0 || isUploading} onClick={handleUploadFiles} className={`font-bold px-6 py-3 rounded-xl text-sm transition shadow-sm flex items-center gap-2 ${sampleFiles.length > 0 && sourceFiles.length > 0 && !isUploading ? 'bg-orange-500 hover:bg-orange-600 text-white' : 'bg-gray-100 text-gray-400 cursor-not-allowed border border-gray-200'}`}>
+          <button disabled={sampleFiles.length === 0 || sourceFiles.length === 0 || isUploading} onClick={handleUploadFiles} className={`w-full md:w-auto font-bold px-6 py-3.5 sm:py-3 rounded-xl text-sm transition shadow-sm flex items-center justify-center gap-2 ${sampleFiles.length > 0 && sourceFiles.length > 0 && !isUploading ? 'bg-orange-500 hover:bg-orange-600 text-white' : 'bg-gray-100 text-gray-400 cursor-not-allowed border border-gray-200'}`}>
             {isUploading ? "Uploading..." : "Start Ingestion & Processing"}
           </button>
         </div>
@@ -232,7 +232,7 @@ export default function ProjectDetail({ project, onBack }) {
               {projectStatus === 'Uploading' ? (
                 <>
                   <input type="file" multiple webkitdirectory="true" directory="true" accept="image/*" onChange={(e) => setSourceFiles(e.target.files)} className="hidden" id="source-files-input" />
-                  <label htmlFor="source-files-input" className="cursor-pointer bg-white border border-gray-200 hover:bg-gray-50 text-gray-800 font-bold px-5 py-2.5 rounded-xl text-sm shadow-sm flex items-center gap-2 transition">Select Bulk Session Folder</label>
+                  <label htmlFor="source-files-input" className="cursor-pointer bg-white border border-gray-200 hover:bg-gray-50 text-gray-800 font-bold px-6 py-3 rounded-xl text-sm shadow-sm flex items-center justify-center gap-2 transition w-full sm:w-auto">Select Bulk Session Folder</label>
                   {sourceFiles.length > 0 && <p className="text-sm font-bold text-emerald-600">{sourceFiles.length} photos selected</p>}
                 </>
               ) : <p className="text-sm font-bold text-emerald-600">✓ Bulk session photos are uploaded and processing</p>}
@@ -247,7 +247,7 @@ export default function ProjectDetail({ project, onBack }) {
               {projectStatus === 'Uploading' ? (
                 <>
                   <input type="file" multiple accept="image/*" onChange={(e) => setSampleFiles(e.target.files)} className="hidden" id="sample-files-input" />
-                  <label htmlFor="sample-files-input" className="cursor-pointer bg-white border border-gray-200 hover:bg-gray-50 text-gray-800 font-bold px-5 py-2.5 rounded-xl text-sm shadow-sm flex items-center gap-2 transition">Select Reference Photos</label>
+                  <label htmlFor="sample-files-input" className="cursor-pointer bg-white border border-gray-200 hover:bg-gray-50 text-gray-800 font-bold px-6 py-3 rounded-xl text-sm shadow-sm flex items-center justify-center gap-2 transition w-full sm:w-auto">Select Reference Photos</label>
                   {sampleFiles.length > 0 && <p className="text-sm font-bold text-emerald-600">{sampleFiles.length} reference photos selected</p>}
                 </>
               ) : <p className="text-sm font-bold text-emerald-600">✓ Target child references are uploaded</p>}
@@ -291,7 +291,7 @@ export default function ProjectDetail({ project, onBack }) {
                       <button 
                         disabled={photo.status === 'rejected'}
                         onClick={() => handlePhotoAction(photo.id, 'rejected')} 
-                        className={`flex-1 py-2 rounded-xl text-xs font-bold transition-all ${
+                        className={`flex-1 py-3 rounded-xl text-xs font-bold transition-all ${
                           photo.status === 'rejected' 
                             ? 'opacity-50 cursor-not-allowed bg-red-600 text-white border-transparent' 
                             : 'border border-gray-200 text-gray-700 hover:bg-gray-50'
@@ -302,7 +302,7 @@ export default function ProjectDetail({ project, onBack }) {
                       <button 
                         disabled={photo.status === 'approved'}
                         onClick={() => handlePhotoAction(photo.id, 'approved')} 
-                        className={`flex-1 py-2 rounded-xl text-xs font-bold transition-all ${
+                        className={`flex-1 py-3 rounded-xl text-xs font-bold transition-all ${
                           photo.status === 'approved' 
                             ? 'opacity-50 cursor-not-allowed bg-green-600 text-white border-transparent' 
                             : 'bg-gray-900 text-white hover:bg-gray-800'

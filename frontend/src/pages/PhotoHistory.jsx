@@ -122,7 +122,7 @@ export default function PhotoHistory() {
               <div 
                 key={child.id} 
                 onClick={() => setSelectedChild(child)}
-                className="bg-white border border-gray-200/70 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-orange-300 transition-all cursor-pointer group flex flex-col items-center text-center space-y-4"
+                className="bg-white border border-gray-200/70 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-orange-300 transition-all cursor-pointer group flex flex-col items-center text-center space-y-4"
               >
                 {/* Large Master Folder Icon */}
                 <div className="relative">
@@ -202,7 +202,7 @@ export default function PhotoHistory() {
         <div className="flex items-center gap-4">
           <button 
             onClick={() => setSelectedEvent(null)}
-            className="p-2 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors border border-transparent hover:border-gray-200"
+            className="p-3 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors border border-transparent hover:border-gray-200"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
@@ -265,7 +265,7 @@ export default function PhotoHistory() {
             setSelectedEvent(null);
             setSelectedPhoto(null);
           }}
-          className="p-2 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors border border-transparent hover:border-gray-200"
+          className="p-3 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors border border-transparent hover:border-gray-200"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
@@ -320,7 +320,7 @@ export default function PhotoHistory() {
                 e.stopPropagation();
                 window.location.href = `/ai-photo-filtering-system/backend/api/download_event_archive.php?project_id=${event.id}`;
               }}
-              className="text-gray-400 hover:text-gray-900 transition-colors p-2 rounded-lg hover:bg-gray-50"
+              className="text-gray-400 hover:text-gray-900 transition-colors p-3 rounded-xl hover:bg-gray-100 border border-transparent hover:border-gray-200"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />

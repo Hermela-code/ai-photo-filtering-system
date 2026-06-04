@@ -66,10 +66,10 @@ export default function Dashboard({ setCurrentPage }) {
           {/* Top Metric Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {statCards.map((s, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-2xl border border-gray-200/60 shadow-sm flex items-center justify-between hover:shadow-md transition duration-200">
+              <div key={idx} className="bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-gray-200/60 shadow-sm flex items-center justify-between hover:shadow-md transition duration-200">
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-gray-400 block">{s.label}</span>
-                  <span className="text-3xl font-black text-gray-900 block mt-1 font-serif tracking-tight">{s.val}</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-gray-400 block">{s.label}</span>
+                  <span className="text-2xl sm:text-3xl font-black text-gray-900 block mt-1 font-serif tracking-tight">{s.val}</span>
                 </div>
                 <div className={`p-3 rounded-xl border ${s.color}`}>
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
@@ -133,7 +133,7 @@ export default function Dashboard({ setCurrentPage }) {
             <div className="lg:col-span-2 bg-white border border-gray-200/60 rounded-xl sm:rounded-2xl shadow-sm p-4 sm:p-6 min-h-[300px]">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="font-bold text-gray-900 text-lg font-serif">Recent Activity Log</h3>
-                <button onClick={() => setCurrentPage('children')} className="text-xs font-bold text-orange-500 hover:text-orange-600 transition">View all</button>
+                <button onClick={() => setCurrentPage('children')} className="text-xs font-bold text-orange-500 hover:text-orange-600 transition py-1.5 px-3 rounded-lg hover:bg-orange-50">View all</button>
               </div>
               
               <div className="space-y-6">

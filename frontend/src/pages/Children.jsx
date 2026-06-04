@@ -155,7 +155,7 @@ export default function Children() {
         <div className="flex items-start gap-4 mb-8">
           <button
             onClick={() => setIsCreating(false)}
-            className="mt-1.5 p-2 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors border border-transparent"
+            className="p-3 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors border border-transparent hover:border-gray-200"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" /></svg>
           </button>
@@ -201,7 +201,7 @@ export default function Children() {
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight font-serif">Projects</h2>
           <p className="text-sm text-gray-500 mt-1">Manage active and completed photo pipelines</p>
         </div>
-        <button onClick={() => setIsCreating(true)} className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition shadow-sm flex items-center gap-2">
+        <button onClick={() => setIsCreating(true)} className="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white font-bold px-5 py-3 rounded-xl text-sm transition shadow-sm flex items-center justify-center gap-2">
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
           New Photos
         </button>
@@ -232,7 +232,7 @@ export default function Children() {
                     </span>
                     <button 
                       onClick={(e) => handleDelete(project.id, e)}
-                      className="text-gray-400 hover:text-red-500 p-1.5 rounded-lg hover:bg-red-50 transition border border-transparent hover:border-red-100"
+                      className="text-gray-400 hover:text-red-500 p-2.5 rounded-xl hover:bg-red-50 transition border border-transparent hover:border-red-100"
                       title="Delete Project"
                     >
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
@@ -262,8 +262,8 @@ export default function Children() {
                 ) : <div className="w-full border-t border-gray-100" />}
               </div>
 
-              <div className="flex items-center justify-center pt-4 mt-1">
-                <button onClick={() => setActiveProject(project)} className="flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-orange-500 transition">
+              <div className="flex items-center justify-center pt-2 mt-1">
+                <button onClick={() => setActiveProject(project)} className="w-full py-2.5 flex items-center justify-center gap-2 text-sm font-bold text-gray-500 hover:text-orange-500 hover:bg-gray-50 rounded-xl transition border border-transparent hover:border-gray-100">
                   {project.status === 'In Review' ? 'Review Matches' : 'Open Project'}
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                 </button>
