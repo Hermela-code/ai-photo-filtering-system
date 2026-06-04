@@ -166,14 +166,14 @@ export default function ProjectDetail({ project, onBack }) {
 
   return (
     <div className="space-y-8 max-w-7xl mx-auto animate-fade-in pb-12">
-      <div className="flex items-center gap-4 justify-between w-full">
-        <div className="flex items-center gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 w-full">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-4">
           <button onClick={onBack} className="p-2 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors border border-transparent hover:border-gray-200">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
             </svg>
           </button>
-          <h2 className="text-3xl font-bold text-gray-900 tracking-tight font-serif capitalize">{project.name}</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight font-serif capitalize">{project.name}</h2>
           <span className={`text-[11px] font-bold px-3 py-1 rounded-full border shrink-0 ${
             projectStatus === 'Uploading' ? 'bg-blue-50 text-blue-600 border-blue-100 animate-pulse' :
             projectStatus === 'Processing' ? 'bg-purple-50 text-purple-600 border-purple-100 animate-pulse' :
@@ -201,7 +201,7 @@ export default function ProjectDetail({ project, onBack }) {
       </div>
 
       {projectStatus === 'Uploading' && (
-        <div className="bg-white p-6 rounded-2xl border border-orange-200 bg-orange-50/10 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="bg-white p-4 sm:p-6 rounded-2xl border border-orange-200 bg-orange-50/10 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="space-y-1">
             <span className="text-sm font-bold text-gray-800 block">Ingestion Pipeline Setup</span>
             <div className="flex flex-wrap gap-4 text-xs font-semibold text-gray-500 mt-1">
@@ -215,9 +215,9 @@ export default function ProjectDetail({ project, onBack }) {
         </div>
       )}
 
-      <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center gap-2">
         {tabs.map((tab) => (
-          <button key={tab.id} onClick={() => setActiveTab(tab.id)} className={`font-bold px-4 py-2.5 rounded-xl text-xs flex items-center gap-2 transition-all ${activeTab === tab.id ? 'bg-white text-gray-900 shadow-sm border border-gray-200' : 'text-gray-500 hover:bg-gray-100 hover:text-gray-700 border border-transparent'}`}>
+          <button key={tab.id} onClick={() => setActiveTab(tab.id)} className={`font-bold px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs flex items-center gap-2 transition-all ${activeTab === tab.id ? 'bg-white text-gray-900 shadow-sm border border-gray-200' : 'text-gray-500 hover:bg-gray-100 hover:text-gray-700 border border-transparent'}`}>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d={tab.icon} /></svg>
             {tab.label}
           </button>
@@ -228,7 +228,7 @@ export default function ProjectDetail({ project, onBack }) {
         {activeTab === 'upload' && (
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-gray-900 font-serif">Upload Bulk Session Photos</h3>
-            <div className="border-2 border-dashed border-gray-200 bg-white rounded-2xl p-12 text-center flex flex-col items-center justify-center space-y-4 shadow-sm min-h-[340px]">
+            <div className="border-2 border-dashed border-gray-200 bg-white rounded-2xl p-6 sm:p-12 text-center flex flex-col items-center justify-center space-y-4 shadow-sm min-h-[340px]">
               {projectStatus === 'Uploading' ? (
                 <>
                   <input type="file" multiple webkitdirectory="true" directory="true" accept="image/*" onChange={(e) => setSourceFiles(e.target.files)} className="hidden" id="source-files-input" />
@@ -243,7 +243,7 @@ export default function ProjectDetail({ project, onBack }) {
         {activeTab === 'targetChild' && (
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-gray-900 font-serif">Select Target Child Reference Photos</h3>
-            <div className="border-2 border-dashed border-gray-200 bg-white rounded-2xl p-12 text-center flex flex-col items-center justify-center space-y-4 shadow-sm min-h-[300px]">
+            <div className="border-2 border-dashed border-gray-200 bg-white rounded-2xl p-6 sm:p-12 text-center flex flex-col items-center justify-center space-y-4 shadow-sm min-h-[300px]">
               {projectStatus === 'Uploading' ? (
                 <>
                   <input type="file" multiple accept="image/*" onChange={(e) => setSampleFiles(e.target.files)} className="hidden" id="sample-files-input" />
@@ -266,11 +266,11 @@ export default function ProjectDetail({ project, onBack }) {
             </div>
 
             {projectStatus === 'Uploading' ? (
-              <div className="border-2 border-dashed border-gray-200 bg-white rounded-2xl p-12 text-center shadow-sm min-h-[250px] flex flex-col items-center justify-center">
+              <div className="border-2 border-dashed border-gray-200 bg-white rounded-2xl p-6 sm:p-12 text-center shadow-sm min-h-[250px] flex flex-col items-center justify-center">
                 <p className="text-sm font-bold text-gray-600">Pending Ingestion. Please select child reference photos and a bulk session folder.</p>
               </div>
             ) : projectStatus === 'Processing' ? (
-              <div className="border-2 border-dashed border-gray-200 bg-white rounded-2xl p-12 text-center shadow-sm min-h-[250px] flex flex-col items-center justify-center border-orange-200 bg-orange-50/5 animate-pulse">
+              <div className="border-2 border-dashed border-gray-200 bg-white rounded-2xl p-6 sm:p-12 text-center shadow-sm min-h-[250px] flex flex-col items-center justify-center border-orange-200 bg-orange-50/5 animate-pulse">
                 <svg className="w-10 h-10 text-orange-400 animate-spin mb-3" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" /></svg>
                 <p className="text-sm font-bold text-gray-600">AI search engine is currently scanning...</p>
               </div>
@@ -315,7 +315,7 @@ export default function ProjectDetail({ project, onBack }) {
                 ))}
               </div>
             ) : (
-              <div className="border-2 border-dashed border-gray-200 bg-white rounded-2xl p-12 text-center shadow-sm">
+              <div className="border-2 border-dashed border-gray-200 bg-white rounded-2xl p-6 sm:p-12 text-center shadow-sm">
                 <p className="text-sm font-bold text-gray-600">No photos match this filter.</p>
               </div>
             )}

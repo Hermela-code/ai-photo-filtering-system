@@ -82,9 +82,9 @@ export default function PhotoHistory() {
   if (!currentChild) {
     return (
       <div className="space-y-6 max-w-7xl mx-auto animate-fade-in">
-        <div className="flex justify-between items-center">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 tracking-tight font-serif">Photo History</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight font-serif">Photo History</h2>
             <p className="text-sm text-gray-500 mt-1">Master directory of all archived target profiles.</p>
           </div>
         </div>
@@ -157,10 +157,10 @@ export default function PhotoHistory() {
       return (
         <div className="space-y-6 max-w-7xl mx-auto animate-fade-in">
           {/* Inline view controls */}
-          <div className="flex items-center justify-between border-b border-gray-200/80 pb-4">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-gray-200/80 pb-4">
             <button 
               onClick={() => setSelectedPhoto(null)}
-              className="px-4 py-2.5 rounded-xl text-xs font-bold text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 shadow-sm transition-colors flex items-center gap-2"
+              className="w-full sm:w-auto px-4 py-2.5 rounded-xl text-xs font-bold text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 shadow-sm transition-colors flex items-center justify-center gap-2"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -168,15 +168,15 @@ export default function PhotoHistory() {
               Back to Gallery
             </button>
             
-            <div className="text-right">
-              <h3 className="font-bold text-gray-900 text-sm font-serif truncate w-64">{selectedPhoto.filename}</h3>
+            <div className="text-left sm:text-right w-full sm:w-auto">
+              <h3 className="font-bold text-gray-900 text-sm font-serif truncate max-w-xs">{selectedPhoto.filename}</h3>
               <p className="text-[10px] text-gray-400 uppercase font-black tracking-wider mt-0.5">{selectedEvent.event} Timeline</p>
             </div>
           </div>
 
           {/* Image Display */}
           <div className="flex flex-col items-center gap-6 pt-2">
-            <div className="w-full flex justify-center bg-gray-50/50 p-6 rounded-3xl border border-gray-200/60 shadow-sm">
+            <div className="w-full flex justify-center bg-gray-50/50 p-3 sm:p-6 rounded-2xl sm:rounded-3xl border border-gray-200/60 shadow-sm">
               <img 
                 src={`/ai-photo-filtering-system/uploads/children/child_${selectedChild.id}/project_${selectedEvent.id}/source/${selectedPhoto.filename}`} 
                 className="w-full h-auto max-h-[75vh] object-contain rounded-2xl shadow-md border border-gray-200/40" 
@@ -209,7 +209,7 @@ export default function PhotoHistory() {
             </svg>
           </button>
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 tracking-tight font-serif capitalize">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight font-serif capitalize">
               {selectedEvent.event}
             </h2>
             <p className="text-sm text-gray-500 mt-1">{selectedEvent.date} • {selectedEvent.photoCount} {selectedEvent.photoCount === 1 ? 'Photo' : 'Photos'} • {selectedEvent.size}</p>
@@ -272,7 +272,7 @@ export default function PhotoHistory() {
           </svg>
         </button>
         <div>
-          <h2 className="text-3xl font-bold text-gray-900 tracking-tight font-serif capitalize">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight font-serif capitalize">
             {currentChild.name}
           </h2>
           <p className="text-sm text-gray-500 mt-1">Timeline of daily events and compressed archives.</p>

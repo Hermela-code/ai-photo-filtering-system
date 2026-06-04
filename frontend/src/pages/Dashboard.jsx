@@ -49,7 +49,7 @@ export default function Dashboard({ setCurrentPage }) {
       
       {/* Header */}
       <div>
-        <h2 className="text-3xl font-bold text-gray-900 tracking-tight font-serif">System Overview</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight font-serif">System Overview</h2>
         <p className="text-sm text-gray-500 mt-1">Monitor AI engine health and system-wide privacy metrics</p>
       </div>
 
@@ -86,7 +86,7 @@ export default function Dashboard({ setCurrentPage }) {
             <div className="lg:col-span-1 space-y-6">
               
               {/* AI Engine Status Widget */}
-              <div className="bg-gray-900 rounded-2xl p-6 shadow-sm border border-gray-800 relative overflow-hidden">
+              <div className="bg-gray-900 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-sm border border-gray-800 relative overflow-hidden">
                 {/* Background design accent */}
                 <div className="absolute -right-4 -top-4 opacity-10">
                   <svg className="w-32 h-32 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" /></svg>
@@ -130,7 +130,7 @@ export default function Dashboard({ setCurrentPage }) {
             </div>
 
             {/* Right Column: Activity Audit Log */}
-            <div className="lg:col-span-2 bg-white border border-gray-200/60 rounded-2xl shadow-sm p-6 min-h-[300px]">
+            <div className="lg:col-span-2 bg-white border border-gray-200/60 rounded-xl sm:rounded-2xl shadow-sm p-4 sm:p-6 min-h-[300px]">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="font-bold text-gray-900 text-lg font-serif">Recent Activity Log</h3>
                 <button onClick={() => setCurrentPage('children')} className="text-xs font-bold text-orange-500 hover:text-orange-600 transition">View all</button>

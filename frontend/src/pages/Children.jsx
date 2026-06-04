@@ -160,13 +160,13 @@ export default function Children() {
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" /></svg>
           </button>
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 tracking-tight font-serif">New Project</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight font-serif">New Project</h2>
             <p className="text-sm text-gray-400 mt-1">Create a new photo filtering batch</p>
           </div>
         </div>
 
-        <form onSubmit={handleCreateProject} className="bg-white border border-gray-200/70 rounded-2xl p-8 shadow-sm space-y-6">
-          <div className="grid grid-cols-2 gap-4">
+        <form onSubmit={handleCreateProject} className="bg-white border border-gray-200/70 rounded-2xl p-5 sm:p-8 shadow-sm space-y-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-2">
               <label className="text-sm font-bold text-gray-800 block">Project Name</label>
               <input type="text" required placeholder="e.g., School Event 2025" value={projectName} onChange={(e) => setProjectName(e.target.value)} className="w-full border border-gray-200 rounded-xl px-4 py-3.5 text-sm outline-none focus:border-orange-400 bg-gray-50/20" />
@@ -196,9 +196,9 @@ export default function Children() {
   // --- VIEW 2: Main Projects Dashboard Grid ---
   return (
     <div className="space-y-6 max-w-7xl mx-auto animate-fade-in">
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
         <div>
-          <h2 className="text-3xl font-bold text-gray-900 tracking-tight font-serif">Projects</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight font-serif">Projects</h2>
           <p className="text-sm text-gray-500 mt-1">Manage active and completed photo pipelines</p>
         </div>
         <button onClick={() => setIsCreating(true)} className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition shadow-sm flex items-center gap-2">
