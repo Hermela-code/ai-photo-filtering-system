@@ -16,7 +16,7 @@ export default function Dashboard({ setCurrentPage }) {
       setIsLoading(true);
       setError(null);
       try {
-        const response = await fetch('http://localhost/photosort/backend/api/get_dashboard_stats.php');
+        const response = await fetch('/ai-photo-filtering-system/backend/api/get_dashboard_stats.php');
         const result = await response.json();
         if (result.status === 'success') {
           setStats({

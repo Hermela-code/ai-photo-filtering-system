@@ -18,7 +18,7 @@ export default function ProjectDetail({ project, onBack }) {
   // Fetch project details and matched photos from backend
   const fetchProjectDetails = async () => {
     try {
-      const response = await fetch(`http://localhost/photosort/backend/api/get_project_details.php?id=${project.id}`);
+      const response = await fetch(`/ai-photo-filtering-system/backend/api/get_project_details.php?id=${project.id}`);
       const result = await response.json();
       if (result.status === 'success') {
         const data = result.data;
@@ -68,7 +68,7 @@ export default function ProjectDetail({ project, onBack }) {
     ));
 
     try {
-      const response = await fetch('http://localhost/photosort/backend/api/update_photo_status.php', {
+      const response = await fetch('/ai-photo-filtering-system/backend/api/update_photo_status.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -113,7 +113,7 @@ export default function ProjectDetail({ project, onBack }) {
     Array.from(sourceFiles).forEach(file => { formData.append('bulk[]', file); });
 
     try {
-      const response = await fetch('http://localhost/photosort/backend/api/upload_project_files.php', {
+      const response = await fetch('/ai-photo-filtering-system/backend/api/upload_project_files.php', {
         method: 'POST',
         body: formData,
       });
@@ -280,7 +280,7 @@ export default function ProjectDetail({ project, onBack }) {
                   <div key={photo.id} className="bg-white rounded-2xl p-3 border border-gray-200 shadow-sm flex flex-col gap-3">
                     <div className="relative aspect-square rounded-xl overflow-hidden bg-gray-100">
                       <img 
-                        src={`http://localhost/photosort/uploads/children/child_${project.profile_id}/project_${project.id}/source/${photo.filename}`} 
+                        src={`/ai-photo-filtering-system/uploads/children/child_${project.profile_id}/project_${project.id}/source/${photo.filename}`} 
                         className="w-full h-full object-cover cursor-pointer hover:scale-[1.02] transition duration-200" 
                         onClick={() => setEnlargedPhoto(photo)} 
                         alt="Match" 
@@ -345,7 +345,7 @@ export default function ProjectDetail({ project, onBack }) {
             onClick={(e) => e.stopPropagation()}
           >
             <img 
-              src={`http://localhost/photosort/uploads/children/child_${project.profile_id}/project_${project.id}/source/${enlargedPhoto.filename}`} 
+              src={`/ai-photo-filtering-system/uploads/children/child_${project.profile_id}/project_${project.id}/source/${enlargedPhoto.filename}`} 
               className="max-w-full max-h-[80vh] object-contain rounded-2xl shadow-2xl border border-white/10" 
               alt="Enlarged review" 
             />

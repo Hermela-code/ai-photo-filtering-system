@@ -20,7 +20,7 @@ export default function PhotoHistory() {
     const fetchHistory = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch('http://localhost/photosort/backend/api/get_photo_history.php');
+        const response = await fetch('/ai-photo-filtering-system/backend/api/get_photo_history.php');
         const result = await response.json();
 
         if (result.status === 'success') {
@@ -50,7 +50,7 @@ export default function PhotoHistory() {
       setIsPhotosLoading(true);
       setPhotosError(null);
       try {
-        const response = await fetch(`http://localhost/photosort/backend/api/get_archived_photos.php?project_id=${selectedEvent.id}`);
+        const response = await fetch(`/ai-photo-filtering-system/backend/api/get_archived_photos.php?project_id=${selectedEvent.id}`);
         const result = await response.json();
         if (result.status === 'success') {
           setEventPhotos(result.data);
@@ -178,7 +178,7 @@ export default function PhotoHistory() {
           <div className="flex flex-col items-center gap-6 pt-2">
             <div className="w-full flex justify-center bg-gray-50/50 p-6 rounded-3xl border border-gray-200/60 shadow-sm">
               <img 
-                src={`http://localhost/photosort/uploads/children/child_${selectedChild.id}/project_${selectedEvent.id}/source/${selectedPhoto.filename}`} 
+                src={`/ai-photo-filtering-system/uploads/children/child_${selectedChild.id}/project_${selectedEvent.id}/source/${selectedPhoto.filename}`} 
                 className="w-full h-auto max-h-[75vh] object-contain rounded-2xl shadow-md border border-gray-200/40" 
                 alt="Enlarged archived match" 
               />
@@ -234,7 +234,7 @@ export default function PhotoHistory() {
               <div key={photo.id} className="bg-white rounded-2xl p-2.5 border border-gray-200/70 shadow-sm flex flex-col gap-2 group hover:border-orange-300 transition-all">
                 <div className="relative aspect-square rounded-xl overflow-hidden bg-gray-50">
                   <img 
-                    src={`http://localhost/photosort/uploads/children/child_${selectedChild.id}/project_${selectedEvent.id}/source/${photo.filename}`} 
+                    src={`/ai-photo-filtering-system/uploads/children/child_${selectedChild.id}/project_${selectedEvent.id}/source/${photo.filename}`} 
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-300 cursor-pointer" 
                     onClick={() => setSelectedPhoto(photo)}
                     alt="Archived match" 
@@ -318,7 +318,7 @@ export default function PhotoHistory() {
             <button 
               onClick={(e) => {
                 e.stopPropagation();
-                window.location.href = `http://localhost/photosort/backend/api/download_event_archive.php?project_id=${event.id}`;
+                window.location.href = `/ai-photo-filtering-system/backend/api/download_event_archive.php?project_id=${event.id}`;
               }}
               className="text-gray-400 hover:text-gray-900 transition-colors p-2 rounded-lg hover:bg-gray-50"
             >

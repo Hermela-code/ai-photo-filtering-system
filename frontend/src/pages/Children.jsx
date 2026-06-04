@@ -30,7 +30,7 @@ export default function Children() {
   const fetchProjects = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch('http://localhost/photosort/backend/api/get_projects.php');
+      const response = await fetch('/ai-photo-filtering-system/backend/api/get_projects.php');
       const result = await response.json();
 
       if (result.status === 'success') {
@@ -66,7 +66,7 @@ export default function Children() {
     };
 
     try {
-      const response = await fetch('http://localhost/photosort/backend/api/create_project.php', {
+      const response = await fetch('/ai-photo-filtering-system/backend/api/create_project.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -114,7 +114,7 @@ export default function Children() {
     if (!projectToDelete) return;
 
     try {
-      const response = await fetch('http://localhost/photosort/backend/api/delete_project.php', {
+      const response = await fetch('/ai-photo-filtering-system/backend/api/delete_project.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
